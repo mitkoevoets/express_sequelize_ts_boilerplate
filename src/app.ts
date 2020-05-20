@@ -1,5 +1,5 @@
 import './bootstrap/env';
-import { config } from './config';
+import config from './config';
 import { app } from './bootstrap/express';
 import { sequelize } from './bootstrap/sequelize';
 import { createServer } from 'http';
