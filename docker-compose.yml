@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: postgres
+    container_name: db_postgres
     networks:
       - localnetwork
     image: postgres:12.2
@@ -13,31 +13,29 @@ services:
       POSTGRES_DB: 'cobra'
     volumes:
       - localnetwork_data:/var/lib/postgresql/data
-#  app:
-#    container_name: cobra_app_2
-#    networks:
-#      - cobranet_2
-#    build: .
-#    environment:
-#      - DB_HOST=cobra_db
-#      - TYPEORM_HOST=cobra_db
-#      - TYPEORM_CONNECTION=postgres
-#      - TYPEORM_USERNAME=postgres
-#      - TYPEORM_PASSWORD=postgres
-#      - TYPEORM_DATABASE=cobra
-#      - TYPEORM_PORT=5434
-#      - PORT=8999
-#      - OPTIMUS_API_URL=http://192.168.144.1:7000
-#      - COBRA_DATASERVICE_URL=http://192.168.144.1:2233
-#    ports:
-#      - 8999:8999
-#    expose:
-#      - 8999
-#    volumes:
-#      - ./:/home/node
-#    depends_on:
-#      - db
-#    command: npm run start
+  app:
+    container_name: app
+    networks:
+      - localnetwork
+    build: .
+    environment:
+      - PORT=8999
+      - DB_NAME=cobra
+      - DB_PORT=5432
+      - DB_HOST=db_postgres
+      - DB_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - OPTIMUS_API_URL=http://192.168.144.1:7000
+      - COBRA_DATASERVICE_URL=http://192.168.144.1:2233
+    ports:
+      - 8999:8999
+    expose:
+      - 8999
+    volumes:
+      - ./:/home/node
+    depends_on:
+      - db
+    command: npm run start
 volumes:
   localnetwork_data:
 networks:

@@ -11,6 +11,7 @@ export const sequelize = new Sequelize({
   dialect: 'postgres',
   username: config.postgres.user,
   database: config.postgres.database,
+  host: config.postgres.host,
   port: config.postgres.port,
   password: config.postgres.password,
   models: [__dirname + '/models'],
