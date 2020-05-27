@@ -5,10 +5,12 @@ const router = express.Router();
 
 router.route('/')
   .get(userController.list)
+  .post(userController.create)
 
-// router.route('/:userId')
-//   .get(userController.get)
-//
-// router.param('userId', userController.load);
+router.route('/:userId')
+  .get(userController.get)
+  .post(userController.update)
+
+router.param('userId', userController.load);
 
 export default router;
