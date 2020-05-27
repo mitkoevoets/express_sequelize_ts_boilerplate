@@ -27,8 +27,6 @@ sequelize
   });
 
 importModels(sequelize, db);
-// syncModels(sequelize, db);
-// associateModels(db);
 
 module.exports = _.extend(
   {

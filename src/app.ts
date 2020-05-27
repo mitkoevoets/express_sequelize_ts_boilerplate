@@ -9,7 +9,6 @@ import { runFactories } from './db/factories/index.factory';
   await sequelize.sync({force: true});
   runFactories()
 
-
   createServer(app)
     .listen(
       config.port,
