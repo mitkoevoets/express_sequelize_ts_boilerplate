@@ -12,6 +12,6 @@ import { runFactories } from './db/factories/index.factory';
   createServer(app)
     .listen(
       config.port,
-      () => console.info('\x1b[33m%s\x1b[0m' ,`[cobra] server started on port ${config.port}`)
+      () => console.info('\x1b[33m%s\x1b[0m' ,`[core] server started on port ${config.port}`)
     );
 })();

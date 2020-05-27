@@ -1,7 +1,7 @@
 {
   "name": "express_sequelize_ts_boilerplate",
   "version": "0.2.1",
-  "description": "Cobra core service",
+  "description": "* core service",
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",

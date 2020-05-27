@@ -10,7 +10,7 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: 'postgres'
-      POSTGRES_DB: 'cobra'
+      POSTGRES_DB: 'appdb'
     volumes:
       - localnetwork_data:/var/lib/postgresql/data
   app:
@@ -20,7 +20,7 @@ services:
     build: .
     environment:
       - PORT=8999
-      - DB_NAME=cobra
+      - DB_NAME=appdb
       - DB_PORT=5432
       - DB_HOST=db_postgres
       - DB_USER=postgres
