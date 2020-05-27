@@ -1,6 +1,8 @@
 import {Model, Column, Table, CreatedAt, UpdatedAt} from "sequelize-typescript";
 
-@Table
+@Table({
+  tableName: 'user'
+})
 export class User extends Model<User> {
   @Column
   firstName!: string;
@@ -12,5 +14,4 @@ export class User extends Model<User> {
   @UpdatedAt
   @Column
   updatedAt!: Date;
-
 }
