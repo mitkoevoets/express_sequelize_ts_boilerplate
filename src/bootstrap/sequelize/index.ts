@@ -2,12 +2,12 @@ import _ from 'lodash';
 import config from '../../config';
 import { Sequelize } from 'sequelize-typescript';
 import { importModels } from './importModels';
-// import { syncModels } from './syncModels';
+import { syncModels } from './syncModels';
 // import { associateModels } from './associateModels';
 
 const db = {};
 
-export const sequelize = new Sequelize({
+export const sequelize: Sequelize = new Sequelize({
   dialect: 'postgres',
   username: config.postgres.user,
   database: config.postgres.database,
@@ -30,7 +30,7 @@ sequelize
   });
 
 importModels(sequelize, db);
-// syncModels(sequelize, db);
+syncModels(sequelize, db);
 // associateModels(db);
 
 module.exports = _.extend(
