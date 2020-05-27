@@ -1,5 +1,5 @@
 import { userFactory } from './user.factory';
 
-export function runFactories() {
+export async function runFactories() {
   return userFactory();
 }

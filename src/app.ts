@@ -7,7 +7,7 @@ import { runFactories } from './db/factories/index.factory';
 
 (async () => {
   await sequelize.sync({force: true});
-  runFactories()
+  await runFactories();
 
   createServer(app)
     .listen(
