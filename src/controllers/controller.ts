@@ -81,8 +81,9 @@ import { Model } from 'sequelize-typescript';
 function list(request: Request, response: Response, next: any, Entity: Model) {
   const { limit = 50 } = request.query;
 
+  // @ts-ignore
   return Entity.findAll({ limit })
-    .then(entities => response.json(entities))
+    .then((entities: Model[]) => response.json(entities))
     .catch((e:  any) => console.log(e));
 }
 //
