@@ -1,15 +1,19 @@
-import { User } from '../models/user.model';
+import { Post } from '../models/post.model';
 import { Request, Response } from 'express';
+import controller from './controller';
+import { LoadedRequest } from '../bootstrap/LoadedRequest';
 
-// const list = (request: Request, response: Response, next: any) => controller.list(request, response, next, User);
-function list(request: Request, response: Response, next: any) {
-  // const { limit = 50 } = request.query;
-
-  return User.findAll({ limit: 50 })
-    .then(entities => response.json(entities))
-    .catch((e: any) => console.log(e));
-}
+const load = async (request: Request, response: Response, next: any, id: number) =>
+  controller.load(request, response, next, id, Post);
+const get = (request: LoadedRequest, response: Response) => controller.get(request, response);
+const create = (request: LoadedRequest, response: Response, next: any) => controller.create(request, response, next, Post);
+const update = (request: LoadedRequest, response: Response, next: any) => controller.update(request, response, next);
+const list = (request: LoadedRequest, response: Response, next: any) => controller.list(request, response, next, Post);
 
 export default {
+  load,
+  get,
+  create,
+  update,
   list,
 };
