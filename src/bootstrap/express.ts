@@ -14,9 +14,3 @@ app.use(helmet());
 app.use(bodyParser.json({limit: '5mb'}));
 
 app.use('/', router);
-
-/**
- *
- * Export express app.
- */
-export default app;
