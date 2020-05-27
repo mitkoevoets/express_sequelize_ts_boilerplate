@@ -5,5 +5,8 @@ export function userFactory(db: any) {
     {
       firstName: 'idea',
     },
-  ]);
+  ]).catch(function(err) {
+    // print the error details
+    console.log(err);
+  });
 }

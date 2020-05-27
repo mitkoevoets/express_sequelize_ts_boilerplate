@@ -3,6 +3,7 @@ import config from '../../config';
 import { Sequelize } from 'sequelize-typescript';
 import { importModels } from './importModels';
 import { syncModels } from './syncModels';
+import modelmatch from './modelmatch';
 // import { associateModels } from './associateModels';
 
 const db = {};
@@ -15,9 +16,7 @@ export const sequelize: Sequelize = new Sequelize({
   port: config.postgres.port,
   password: config.postgres.password,
   models: [__dirname + '/models/*.model.ts'],
-  modelMatch: (filename, member) => {
-    return filename.substring(0, filename.indexOf('.model')) === member.toLowerCase();
-  },
+  modelMatch: modelmatch,
 });
 
 sequelize
