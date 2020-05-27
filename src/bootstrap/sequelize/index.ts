@@ -2,9 +2,7 @@ import _ from 'lodash';
 import config from '../../config';
 import { Sequelize } from 'sequelize-typescript';
 import { importModels } from './importModels';
-import { syncModels } from './syncModels';
 import modelmatch from './modelmatch';
-// import { associateModels } from './associateModels';
 
 const db = {};
 
@@ -29,7 +27,7 @@ sequelize
   });
 
 importModels(sequelize, db);
-syncModels(sequelize, db);
+// syncModels(sequelize, db);
 // associateModels(db);
 
 module.exports = _.extend(

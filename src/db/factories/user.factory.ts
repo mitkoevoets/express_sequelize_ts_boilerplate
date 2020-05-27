@@ -1,6 +1,6 @@
 import { User } from '../../models/user.model';
 
-export function userFactory(db: any) {
+export function userFactory() {
   return User.bulkCreate([
     {
       firstName: 'idea',
